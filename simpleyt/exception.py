@@ -1,0 +1,2 @@
+class SimpleYTException(Exception):
+    pass 
