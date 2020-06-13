@@ -119,7 +119,7 @@ class YoutubeAPI:
         response_json = response_json.get('items')
         self.response = response_json
         for item in response_json:
-            video_ids.append(item.get('id'))
+            video_ids.append(item.get('snippet').get('resourceId').get('videoId'))
         return video_ids    
 
         
