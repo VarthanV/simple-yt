@@ -1,9 +1,10 @@
 import requests
 from simpleyt.exception import SimpleYTException
-from simpleyt.YoutubeVideo import YoutubeVideo
 from pprint import pprint
-from simpleyt.YoutubeChannel import YouTubeChannel
-
+from simpleyt.youtube_channel import YouTubeChannel
+from simpleyt.youtube_video import YoutubeVideo
+from simpleyt.video_comment import VideoComment
+import json
 # AIzaSyA9Tz9bICdRgR3CLwxR__wDVAeSFiVz15M
 
 # Id: 7M9hc_PC_Vg
@@ -57,8 +58,20 @@ class YoutubeAPI:
         return yt_class
 
     def get_channel(self, channel_id):
+        """ Returns the Detail of a Channel """
         _url = "https://www.googleapis.com/youtube/v3/channels?part=contentDetails&part=snippet&part=statistics&part=topicDetails&part=brandingSettings&id={}&key={}&maxResults=50".format(
             channel_id, self.api_key)
         response_json = self.make_request(_url)
         yt_class =YouTubeChannel(response_json)
         return yt_class
+    def get_comments(self,video_id, max_results=50,**kwargs):
+        """  Fetches Comments of a Video """
+        _url  ='https://www.googleapis.com/youtube/v3/commentThreads?key={}&textFormat=plainText&part=snippet&videoId={}&maxResults={}'.format(self.api_key,video_id,max_results)
+        for key,value in kwargs.items():
+            """  For passing next page token and other stuffs"""
+            _url+='&{}={}'.format(key , value)
+        response_json = self.make_request(_url)
+        comment_obj =VideoComment(response_json)
+        return comment_obj
+       
+            
