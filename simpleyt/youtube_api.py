@@ -134,6 +134,9 @@ class YoutubeAPI:
         """
         _url = 'https://www.googleapis.com/youtube/v3/search?part=id&q={}&type=video&key={}'.format(
             query, self.api_key)
+        for key, value in kwargs.items():
+            """  For passing next page token and other stuffs"""
+            _url += '&{}={}'.format(key, value)
 
         videos = []
         self.response_json = self.make_request(_url)
