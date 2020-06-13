@@ -58,3 +58,18 @@ class YouTubeChannel(object):
     def video_count(self) ->int:
         """ Count of the Videos Posted by the Channel"""
         return int(self.statistics.get('videoCount'))     
+    @property
+    def topics(self) ->list :
+        """ List of the Topics Covered by the Channel """
+        return self.main_items.get('topicDetails').get('topicCategories')
+    @property
+    def banner_dict(self) -> dict:
+        """ Returns a dict that contains the Banner details of the Channel"""
+        return self.main_items.get('brandingSettings').get('image')
+    @property
+    def banner_image_url(self) -> str:
+       """ Returns the URL of the Default Banner Image"""
+       try : 
+         return self.main_items.get('brandingSettings').get('image').get('bannerImageUrl')        
+       except : 
+           return None
