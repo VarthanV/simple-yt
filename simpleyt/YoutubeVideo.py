@@ -1,4 +1,4 @@
-from pprint import pprint
+import isodate
 
 
 class YoutubeVideo(object):
@@ -79,7 +79,7 @@ class YoutubeVideo(object):
         return self.content.get('contentRating')
 
     @property
-    def is_licensed_content(self) ->bool:
+    def is_licensed_content(self) -> bool:
         """ Checks whether the content is licensed or not, Returns a boolean"""
         return self.content.get('licensedContent')
 
@@ -108,3 +108,30 @@ class YoutubeVideo(object):
         """  The Favorite count of the Video """
         return int(self.statistics.get('favoriteCount'))
 
+    @property
+    def thumbnail_dict(self) -> dict:
+        """  The dict containing Thumbnail"""
+        return self.video_data.get('thumbnails')
+
+    @property
+    def default_thumbnail_url(self) -> str:
+        """ The URL of the Thumbnail of the Default Resolution"""
+        url_ = self.video_data.get('thumbnails').get('default').get('url')
+        return url_
+
+    @property
+    def has_captions(self) -> bool:
+        """ Whether the Video has Captions or not """
+        return self.content.get('caption')
+
+    @property
+    def duration(self) -> str:
+        """ The duration of the video in ISO Format"""
+        return self.content.get('duration')
+
+    @property
+    def duration_in_seconds(self) -> float:
+        """ The duration of the video in seconds  """
+        duration = isodate.parse_duration(self.content.get('duration'))
+        total_seconds = duration.total_seconds()
+        return total_seconds
