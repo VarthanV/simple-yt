@@ -122,6 +122,13 @@ class YoutubeAPI:
             video_ids.append(item.get('snippet').get('resourceId').get('videoId'))
         return video_ids    
 
+    def search(term='',max_results=10,**kwargs):
+        """ 
+        Search a video
+        
+        """
+        pass    
+
         
 
 
