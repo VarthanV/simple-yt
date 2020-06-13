@@ -44,4 +44,17 @@ class YouTubeChannel(object):
     def country(self) -> str:
         """ Returns the Country of the Channel """
         return self.snippet.get('country')
-        
+    @property
+    def view_count(self) -> int :
+        """ View Count of the Channel """
+
+        return int(self.statistics.get('viewCount'))    
+
+    @property
+    def subscribers_count(self) -> str:
+        """ Subscribers Count of the Channel """
+        return self.statistics.get('subscriberCount') 
+    @property
+    def video_count(self) ->int:
+        """ Count of the Videos Posted by the Channel"""
+        return int(self.statistics.get('videoCount'))     
