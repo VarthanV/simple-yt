@@ -2,6 +2,7 @@ import requests
 from simpleyt.exception import SimpleYTException
 from simpleyt.YoutubeVideo import YoutubeVideo
 from pprint import pprint
+from simpleyt.YoutubeChannel import YouTubeChannel
 
 # AIzaSyA9Tz9bICdRgR3CLwxR__wDVAeSFiVz15M
 
@@ -56,7 +57,8 @@ class YoutubeAPI:
         return yt_class
 
     def get_channel(self, channel_id):
-        _url = "https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id={}&key={}&maxResults=50".format(
+        _url = "https://www.googleapis.com/youtube/v3/channels?part=contentDetails&part=snippet&part=statistics&part=topicDetails&part=brandingSettings&id={}&key={}&maxResults=50".format(
             channel_id, self.api_key)
         response_json = self.make_request(_url)
-        pprint(response_json)    
+        yt_class =YouTubeChannel(response_json)
+        return yt_class
