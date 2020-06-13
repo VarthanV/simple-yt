@@ -8,14 +8,16 @@ class Comment(object):
         self.main_data = self.comment_dict.get('snippet')
         self.comment_data = self.main_data.get(
             'topLevelComment').get('snippet')
+
     @property
-    def response(self) ->dict:
+    def response(self) -> dict:
         """ Returns the Comment  JSON"""
         return self.comment_dict
+
     @property
     def comment_id(self) -> str:
         """ Returns the ID of the Comment"""
-        return self.comment_data.get('id')           
+        return self.comment_data.get('id')
 
     @property
     def comment_text(self) -> str:
@@ -36,11 +38,14 @@ class Comment(object):
     def author_channel_url(self):
         """ The URL of the Channel of the Author"""
         return self.comment_data.get('authorChannelUrl')
-        
 
     @property
     def like_count(self) -> int:
         """ The Likes that the Comment got"""
         return int(self.comment_data.get('likeCount'))
 
+    @property
+    def published_at(self):
+        """ The Published Details of the Comment """
+        return self.comment_data.get('publishedAt')
 
