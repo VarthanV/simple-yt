@@ -1,6 +1,5 @@
 import isodate
 
-
 class YoutubeVideo(object):
     def __init__(self, video_obj: dict):
         """
@@ -20,7 +19,7 @@ class YoutubeVideo(object):
             self.content = self.main_item.get('contentDetails')
             self.statistics = self.main_item.get('statistics')
         except Exception as e:
-            print(e)
+           raise Exception(e)
 
     def _clean_string(self, string):
         string = string.strip()

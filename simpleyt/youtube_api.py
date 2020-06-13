@@ -95,7 +95,33 @@ class YoutubeAPI:
            _url+='&{}={}'.format(key , value)
         response_json = self.make_request(_url)
         comment_list = response_json.get('items')
+        self.next_page_token = response_json.get('nextPageToken')
         for comment in comment_list:
             obj =Playlist(comment)
             self.playlists.append(obj)
-        return self.playlists     
+        return self.playlists 
+
+
+    def get_videos_from_playlist(self,playlist_id,max_results =1000,**kwargs):
+        """
+        Gets the List of ID's of Videos from the given 
+        playlist
+
+        The video Id's will be returned to get more details about the video 
+        get_vide can be used
+        """
+        _url = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId={}&maxResults=50&key={}".format(playlist_id,self.api_key)
+        for key,value in kwargs.items():
+           """  For passing next page token and other stuffs"""
+           _url+='&{}={}'.format(key , value)
+        video_ids = []
+        response_json = self.make_request(_url)
+        response_json = response_json.get('items')
+        self.response = response_json
+        for item in response_json:
+            video_ids.append(item.get('id'))
+        return video_ids    
+
+        
+
+

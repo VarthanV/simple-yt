@@ -48,7 +48,3 @@ class Playlist(object):
         
         """
         return self.main_data.get('thumbnails').get('default').get('url')  
-
-    
-         
-        
