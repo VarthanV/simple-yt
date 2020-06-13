@@ -11,3 +11,4 @@ class YoutubeVideo(object):
         Internal method which parses the Json and returns the
         associated properties of the video
         """
+        print(self.video_obj)
