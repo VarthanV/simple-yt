@@ -49,3 +49,7 @@ class Comment(object):
         """ The Published Details of the Comment """
         return self.comment_data.get('publishedAt')
 
+    @property
+    def reply_count(self) -> int :
+        """ The number of replies the Comment has"""
+        return int(self.main_data.get('totalReplyCount'))
