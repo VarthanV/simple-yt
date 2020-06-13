@@ -5,15 +5,16 @@ from simpleyt.youtube_channel import YouTubeChannel
 from simpleyt.youtube_video import YoutubeVideo
 from simpleyt.video_comment import VideoComment
 import json
+from simpleyt.playlist import Playlist
 # AIzaSyA9Tz9bICdRgR3CLwxR__wDVAeSFiVz15M
 
 # Id: 7M9hc_PC_Vg
-
-
+#Channel : UC-lHJZR3Gqxm24_Vd_AJ5Yw
 class YoutubeAPI:
     def __init__(self, api_key):
         """
         Please do obtain a API key from here https://console.cloud.google.com/apis/dashboard
+        :param:api_key: The API key that you got from the Console
         """
         self.api_key = api_key
         if not self.verify_key():
@@ -49,6 +50,7 @@ class YoutubeAPI:
         When a video id is given it returns the Details of the video like
         Thumbnail,Title,Likes,Count,description,Category etc.. as a "YouTube"
         video class which has the properties for the same
+        :param:video_id: The Id of the video
 
         """
         _vid_url = 'https://www.googleapis.com/youtube/v3/videos?id={}&key={}&part=contentDetails&part=statistics&part=snippet'.format(
@@ -58,14 +60,21 @@ class YoutubeAPI:
         return yt_class
 
     def get_channel(self, channel_id):
-        """ Returns the Detail of a Channel """
+        """ Returns the Detail of a Channel
+        :param:channel_id: The ID of the Channel 
+        
+         """
         _url = "https://www.googleapis.com/youtube/v3/channels?part=contentDetails&part=snippet&part=statistics&part=topicDetails&part=brandingSettings&id={}&key={}&maxResults=50".format(
             channel_id, self.api_key)
         response_json = self.make_request(_url)
         yt_class =YouTubeChannel(response_json)
         return yt_class
     def get_comments(self,video_id, max_results=50,**kwargs):
-        """  Fetches Comments of a Video """
+        """  
+        Fetches Comments of a Video 
+        :param: The ID of the Video 
+        
+        """
         _url  ='https://www.googleapis.com/youtube/v3/commentThreads?key={}&textFormat=plainText&part=snippet&videoId={}&maxResults={}'.format(self.api_key,video_id,max_results)
         for key,value in kwargs.items():
             """  For passing next page token and other stuffs"""
@@ -73,5 +82,27 @@ class YoutubeAPI:
         response_json = self.make_request(_url)
         comment_obj =VideoComment(response_json)
         return comment_obj
+
+    def get_playlists(self,channel_id,max_results=50,**kwargs):
+        """
+        Returns the List of Playlists a particular channel has
+        :param: The Id of the Channel 
+        """
+        self.playlists =[]
+        _url='https://www.googleapis.com/youtube/v3/playlists?key={}&textFormat=plainText&part=snippet&channelId={}&maxResults={}'.format(self.api_key,channel_id,max_results)
+        for key,value in kwargs.items():
+           """  For passing next page token and other stuffs"""
+           _url+='&{}={}'.format(key , value)
+        response_json = self.make_request(_url)
+        comment_list = response_json.get('items')
+        for comment in comment_list:
+            obj =Playlist(comment)
+            self.playlists.append(obj)
+        return self.playlists     
+
+
+    
+
+
        
             
