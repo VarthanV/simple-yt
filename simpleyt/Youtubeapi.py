@@ -2,7 +2,9 @@ import requests
 from simpleyt.exception import SimpleYTException
 from simpleyt.YoutubeVideo import YoutubeVideo
 
-#AIzaSyA9Tz9bICdRgR3CLwxR__wDVAeSFiVz15M
+# AIzaSyA9Tz9bICdRgR3CLwxR__wDVAeSFiVz15M
+
+
 class YoutubeAPI:
     def __init__(self, api_key):
         """
@@ -14,7 +16,8 @@ class YoutubeAPI:
                 "Invalid Api Key , Please do obtain a valid key from here  https://console.cloud.google.com/apis/dashboard")
 
     def verify_key(self):
-        url = "https://www.googleapis.com/youtube/v3/videos?id=7M9hc_PC_Vg&key=AIzaSyA9Tz9bICdRgR3CLwxR__wDVAeSFiVz15M&part=contentDetails&part=statistics"
+        url = "https://www.googleapis.com/youtube/v3/videos?id=7M9hc_PC_Vg&key={}&part=contentDetails&part=statistics".format(
+            self.api_key)
         res = requests.get(url)
         try:
             res.raise_for_status()
@@ -43,7 +46,8 @@ class YoutubeAPI:
         video class which has the properties for the same 
 
         """
-        _vid_url  = 'https://www.googleapis.com/youtube/v3/videos?id={VID_ID}&key={API_KEY}&part=contentDetails&part=statistics&part=snippet'.format(video_id,self.api_key)
+        _vid_url = 'https://www.googleapis.com/youtube/v3/videos?id={}&key={}&part=contentDetails&part=statistics&part=snippet'.format(
+            video_id, self.api_key)
         response_json = self.make_request(_vid_url)
         yt_class = YoutubeVideo(response_json)
         return yt_class
