@@ -44,3 +44,4 @@ class YouTubeChannel(object):
     def country(self) -> str:
         """ Returns the Country of the Channel """
         return self.snippet.get('country')
+        
