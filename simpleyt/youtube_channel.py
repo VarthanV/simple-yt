@@ -5,10 +5,10 @@ class YouTubeChannel(object):
         self._parse_obj()
 
     def _parse_obj(self):
-        self.main_items = self.channel_obj.get('items')[0]
-        self._snippet = self.main_items.get('snippet')
-        self.content = self.main_items.get("contentDetails")
-        self.statistics = self.main_items.get('statistics')
+        self._main_items = self.channel_obj.get('items')[0]
+        self._snippet = self._main_items.get('snippet')
+        self._content = self._main_items.get("contentDetails")
+        self._statistics = self._main_items.get('statistics')
 
     @property
     def response(self) -> dict:
@@ -49,28 +49,28 @@ class YouTubeChannel(object):
     def view_count(self) -> int :
         """ View Count of the Channel """
 
-        return int(self.statistics.get('viewCount'))    
+        return int(self._statistics.get('viewCount'))    
 
     @property
     def subscribers_count(self) -> str:
         """ Subscribers Count of the Channel """
-        return self.statistics.get('subscriberCount') 
+        return self._statistics.get('subscriberCount') 
     @property
     def video_count(self) ->int:
         """ Count of the Videos Posted by the Channel"""
-        return int(self.statistics.get('videoCount'))     
+        return int(self._statistics.get('videoCount'))     
     @property
     def topics(self) ->list :
         """ List of the Topics Covered by the Channel """
-        return self.main_items.get('topicDetails').get('topicCategories')
+        return self._main_items.get('topicDetails').get('topicCategories')
     @property
     def banner_dict(self) -> dict:
         """ Returns a dict that contains the Banner details of the Channel"""
-        return self.main_items.get('brandingSettings').get('image')
+        return self._main_items.get('brandingSettings').get('image')
     @property
     def banner_image_url(self) -> str:
        """ Returns the URL of the Default Banner Image"""
        try : 
-         return self.main_items.get('brandingSettings').get('image').get('bannerImageUrl')        
+         return self._main_items.get('brandingSettings').get('image').get('bannerImageUrl')        
        except : 
            return None
