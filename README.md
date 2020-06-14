@@ -1,7 +1,6 @@
 ## simpleyt
-	
-simpleyt is a unofficial Python Package for the Youtube API. It focuses on **simplicity** as the name says to fetch details of the video,playlist,channel etc in a easy manner
 
+simpleyt is a unofficial Python Package for the Youtube API. It focuses on **simplicity** as the name says to fetch details of the video,playlist,channel etc in a easy manner
 
 ## Installation
 
@@ -10,7 +9,6 @@ pip install simpleyt
 ```
 
 ## Usage
-
 
 ## Quickstart
 
@@ -26,15 +24,15 @@ client = simpleyt.YotubeAPI('<API KEY>')
 
 ## Get Video
 
-Details of a video can be obtained by using the   ``` get_video``` method.
+Details of a video can be obtained by using the `get_video` method.
 
 ```python
-# A Sample video id has been passed 
+# A Sample video id has been passed
 
 video =client.get('uN-TvWzeEvA')
 ```
 
-An instance of  ``` YotubeVideo``` class will be returned which helps to obtain the details of the video in a easy manner by using the attributes.
+An instance of `YotubeVideo` class will be returned which helps to obtain the details of the video in a easy manner by using the attributes.
 
 ```python
 >>> video.title
@@ -109,7 +107,6 @@ An instance of  ``` YotubeVideo``` class will be returned which helps to obtain 
 
 ## Get Channel Details
 
-
 ```python
 >>> channel = v.get_channel('UC-lHJZR3Gqxm24_Vd_AJ5Yw')
 
@@ -135,8 +132,9 @@ An instance of  ``` YotubeVideo``` class will be returned which helps to obtain 
 
 ```
 
-
 ## Get comments of a video
+
+The `get_comment` method returns a List of `Comment` object
 
 ```python
 comment_data = client.get_comments('JHhO5JKofgc')
@@ -151,5 +149,29 @@ comment = comments_list[0]
 >>> comment.author_name
 'boninieee'
 
+```
+
+## Get playlists
+
+This method returns the `Playlist` object.
+
+```python
+
+ playlists =c.get_playlists('UC-lHJZR3Gqxm24_Vd_AJ5Yw')
+
+ >>> for item in playlists:
+   ...:     print(item.playlist_id)
+   ...:
+PLYH8WvNV1YElE78ql2vvcOURM1tve_njn
+PLYH8WvNV1YEkRR6peiTWZfIRUglGJBQV5
+PLYH8WvNV1YElSlBP0ohchkYTByQ-xD92v
+PLYH8WvNV1YEnb1QbNk1_liUa_UXH_SIVl
+PLYH8WvNV1YEldU75ZIVbAl6OB6brtGKY6
+PLYH8WvNV1YEnaAanyt5FPgwjZY0Lnu8Pb
+PLYH8WvNV1YEnLCzUDWueIZQXDNhqLKywk
+PLYH8WvNV1YEn9PkI2stxJWMs8GRit66Rz
+PLYH8WvNV1YElPqvWxK_uzWhcMXY_DvlPu
+PLYH8WvNV1YEniTaIMd95jFlqBpxR0SWJE
+....
 ```
 
