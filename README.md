@@ -128,5 +128,27 @@ An instance of  ``` YotubeVideo``` class will be returned which helps to obtain 
  'https://en.wikipedia.org/wiki/Entertainment',
  'https://en.wikipedia.org/wiki/Action_game',
  'https://en.wikipedia.org/wiki/Role-playing_video_game']
- 
+
+>>> channel.banner_image_url
+
+'https://yt3.ggpht.com/wuqXYCeCdttO0TcwBJR2yy0uJP2hPwTPdrDQpjD00t0Xd_81t6dYeLdVMR24ArD4kuIpWO4hWg=w1060-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj'
+
+```
+
+
+## Get comments of a video
+
+```python
+comment_data = client.get_comments('JHhO5JKofgc')
+
+comments_list = client.comments
+comment = comments_list[0]
+>>> comment.comment_text
+'as a filipino, i am quite irritated at the fact that they belittle Rose j'
+>>> comment.author_image_url
+'https://yt3.ggpht.com/a/AATXAJxlURGc1iRQESvxlyUZPTM_pt1WviokL2k2dQ=s48-c-k-c0xffffffff-no-rj-mo'
+
+>>> comment.author_name
+'boninieee'
+
 ```

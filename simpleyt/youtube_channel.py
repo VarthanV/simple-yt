@@ -6,7 +6,7 @@ class YouTubeChannel(object):
 
     def _parse_obj(self):
         self.main_items = self.channel_obj.get('items')[0]
-        self.snippet = self.main_items.get('snippet')
+        self._snippet = self.main_items.get('snippet')
         self.content = self.main_items.get("contentDetails")
         self.statistics = self.main_items.get('statistics')
 
@@ -18,33 +18,33 @@ class YouTubeChannel(object):
     @property
     def name(self) -> str:
         """ The name of the Channel """
-        return self.snippet.get('title')
+        return self._snippet.get('title')
 
     @property
     def description(self) -> str:
         """  The description of the Channel"""
-        return self.snippet.get('description')
+        return self._snippet.get('description')
 
     @property
     def published_at(self) -> str:
         """ The published details of the Channel """
-        return self.snippet.get('publishedAt')
+        return self._snippet.get('publishedAt')
 
     @property
     def thumbnail_dict(self) -> dict:
         """ The Thumbnail Dict of the Channel  """
-        return self.snippet.get('thumbnails')
+        return self._snippet.get('thumbnails')
 
     @property
     def default_thumbnail(self) -> str:
         """ The URL of the default thumbnail of the Channel"""
-        _url = self.snippet.get('thumbnails').get('default').get('url')
+        _url = self._snippet.get('thumbnails').get('default').get('url')
         return _url
 
     @property
     def country(self) -> str:
         """ Returns the Country of the Channel """
-        return self.snippet.get('country')
+        return self._snippet.get('country')
     @property
     def view_count(self) -> int :
         """ View Count of the Channel """
