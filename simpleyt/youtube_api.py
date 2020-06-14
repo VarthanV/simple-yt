@@ -3,13 +3,7 @@ from simpleyt.exception import SimpleYTException
 from simpleyt.youtube_channel import YouTubeChannel
 from simpleyt.youtube_video import YoutubeVideo
 from simpleyt.video_comment import VideoComment
-import json
 from simpleyt.playlist import Playlist
-# AIzaSyA9Tz9bICdRgR3CLwxR__wDVAeSFiVz15M
-
-# Id: 7M9hc_PC_Vg
-#Channel : UC-lHJZR3Gqxm24_Vd_AJ5Yw
-
 
 class YoutubeAPI:
     def __init__(self, api_key):
