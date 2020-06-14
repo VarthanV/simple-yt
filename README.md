@@ -107,3 +107,26 @@ An instance of  ``` YotubeVideo``` class will be returned which helps to obtain 
 
 ```
 
+## Get Channel Details
+
+
+```python
+>>> channel = v.get_channel('UC-lHJZR3Gqxm24_Vd_AJ5Yw')
+
+>>> channel.name
+'PewDiePie'
+>>> channel.description
+'I make videos.'
+>>> channel.country
+'US'
+>>> channel.subscribers_count
+105000000
+>>> channel.topics
+
+['https://en.wikipedia.org/wiki/Film',
+ 'https://en.wikipedia.org/wiki/Video_game_culture',
+ 'https://en.wikipedia.org/wiki/Entertainment',
+ 'https://en.wikipedia.org/wiki/Action_game',
+ 'https://en.wikipedia.org/wiki/Role-playing_video_game']
+ 
+```

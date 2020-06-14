@@ -1,6 +1,5 @@
 import requests
 from simpleyt.exception import SimpleYTException
-from pprint import pprint
 from simpleyt.youtube_channel import YouTubeChannel
 from simpleyt.youtube_video import YoutubeVideo
 from simpleyt.video_comment import VideoComment
