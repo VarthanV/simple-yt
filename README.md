@@ -174,4 +174,20 @@ PLYH8WvNV1YElPqvWxK_uzWhcMXY_DvlPu
 PLYH8WvNV1YEniTaIMd95jFlqBpxR0SWJE
 ....
 ```
+##  Search for videos
 
+
+```python
+
+ s =client.search('Cat videos ') 
+
+```
+This method returns the list of ``` YotubeVideo``` objects
+
+## Contributing
+
+If you have worked on some changes and need new changes make a pull request  [Pull Request](https://github.com/VarthanV/simple-yt/pulls)
+
+## Issues
+
+Submit a new Issue here [Issue](https://github.com/VarthanV/simple-yt/issues)
