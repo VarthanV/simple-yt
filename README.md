@@ -40,15 +40,70 @@ An instance of  ``` YotubeVideo``` class will be returned which helps to obtain 
 >>> video.title
 'Rip Ohio /r/softwaregore #48 [REDDIT REVIEW]'
 
->>> v.category_id
+>>> video.category_id
  '24'
 
->>> v.channel_name
+>>> video.channel_name
 'PewDiePie'
->>> v.description
+>>> video.description
 'ohio will be taken over by computers. subscribe for more reddit reviews epicly\n\n100 CLUB MERCH OUT NOW! https://represent.com/store/pewdiepie (Thank you) (▰˘◡˘▰)\nMinecraft Series Playlist:\nhttps://www.youtube.com/watch?v=VGt-BZ-SxGI&list=PLYH8WvNV1YEnLCzUDWueIZQXDNhqLKywk\nALL MINECRAFT EPISODES Playlist:\nhttps://www.youtube.com/watch?v=mhgS6TNkX9Q&list=PLYH8WvNV1YEn9PkI2stxJWMs8GRit66Rz\n\n\n:::::::My Stores:::::::: \nTSUKI:\nhttps://tsuki.market/\nMerch:\nhttps://represent.com/store/pewdiepie\n\n:::::::I drink GFUEL (affiliate link)::::::::\nhttps://gfuel.ly/31Kargr\n\n:::::::I stream on DLive (ad)::::::::\n\nhttps://go.dlive.tv/pewdiepie\n\n:::::::My Setup (affiliate links):::::::: \nChair: https://clutchchairz.com/pewdiepie/\nElgato Green Screen:\nhttp://e.lga.to/PewDiePie\n\n:::::::Check out this game I helped make (affiliate)::::::::\nhttps://store.steampowered.com/app/703840/Animal_Super_Squad/\n\n__ Outro: Animation:\nhttps://www.youtube.com/user/jae55555\n Song: https://www.youtube.com/channel/UC3e8EMTOn4g6ZSKggHTnNng'
 
->>> v.like_count
+>>> video.like_count
 465961
+>>> video.duration_in_seconds
+1177.0
+
+#The actual response returned by the  API
+
+>>> v.response
+
+{'publishedAt': '2019-10-06T18:33:47Z',
+ 'channelId': 'UC-lHJZR3Gqxm24_Vd_AJ5Yw',
+ 'title': 'Rip Ohio /r/softwaregore #48 [REDDIT REVIEW]',
+ 'description': 'ohio will be taken over by computers. subscribe for more reddit reviews epicly\n\n100 CLUB MERCH OUT NOW! https://represent.com/store/pewdiepie (Thank you) (▰˘◡˘▰)\nMinecraft Series Playlist:\nhttps://www.youtube.com/watch?v=VGt-BZ-SxGI&list=PLYH8WvNV1YEnLCzUDWueIZQXDNhqLKywk\nALL MINECRAFT EPISODES Playlist:\nhttps://www.youtube.com/watch?v=mhgS6TNkX9Q&list=PLYH8WvNV1YEn9PkI2stxJWMs8GRit66Rz\n\n\n:::::::My Stores:::::::: \nTSUKI:\nhttps://tsuki.market/\nMerch:\nhttps://represent.com/store/pewdiepie\n\n:::::::I drink GFUEL (affiliate link)::::::::\nhttps://gfuel.ly/31Kargr\n\n:::::::I stream on DLive (ad)::::::::\n\nhttps://go.dlive.tv/pewdiepie\n\n:::::::My Setup (affiliate links):::::::: \nChair: https://clutchchairz.com/pewdiepie/\nElgato Green Screen:\nhttp://e.lga.to/PewDiePie\n\n:::::::Check out this game I helped make (affiliate)::::::::\nhttps://store.steampowered.com/app/703840/Animal_Super_Squad/\n\n__ Outro: Animation:\nhttps://www.youtube.com/user/jae55555\n Song: https://www.youtube.com/channel/UC3e8EMTOn4g6ZSKggHTnNng',
+ 'thumbnails': {'default': {'url': 'https://i.ytimg.com/vi/uN-TvWzeEvA/default.jpg',
+   'width': 120,
+   'height': 90},
+  'medium': {'url': 'https://i.ytimg.com/vi/uN-TvWzeEvA/mqdefault.jpg',
+   'width': 320,
+   'height': 180},
+  'high': {'url': 'https://i.ytimg.com/vi/uN-TvWzeEvA/hqdefault.jpg',
+   'width': 480,
+   'height': 360},
+  'standard': {'url': 'https://i.ytimg.com/vi/uN-TvWzeEvA/sddefault.jpg',
+   'width': 640,
+   'height': 480},
+  'maxres': {'url': 'https://i.ytimg.com/vi/uN-TvWzeEvA/maxresdefault.jpg',
+   'width': 1280,
+   'height': 720}},
+ 'channelTitle': 'PewDiePie',
+ 'tags': ['SATIRE',
+  'pewdiepie',
+  'pewdie',
+  'pdp',
+  'reddit review',
+  'pewdiepie reddit review',
+  'pewdiepie reddit',
+  'reddit',
+  'minecraft',
+  'pewdiepie minecraft',
+  'reddit software',
+  'software',
+  'software engineering',
+  'technology',
+  'tech review',
+  'pc',
+  'computers',
+  'ohio',
+  'comedy',
+  'parody'],
+ 'categoryId': '24',
+ 'liveBroadcastContent': 'none',
+ 'defaultLanguage': 'en-US',
+ 'localized': {'title': 'Rip Ohio /r/softwaregore #48 [REDDIT REVIEW]',
+  'description': 'ohio will be taken over by computers. subscribe for more reddit reviews epicly\n\n100 CLUB MERCH OUT NOW! https://represent.com/store/pewdiepie (Thank you) (▰˘◡˘▰)\nMinecraft Series Playlist:\nhttps://www.youtube.com/watch?v=VGt-BZ-SxGI&list=PLYH8WvNV1YEnLCzUDWueIZQXDNhqLKywk\nALL MINECRAFT EPISODES Playlist:\nhttps://www.youtube.com/watch?v=mhgS6TNkX9Q&list=PLYH8WvNV1YEn9PkI2stxJWMs8GRit66Rz\n\n\n:::::::My Stores:::::::: \nTSUKI:\nhttps://tsuki.market/\nMerch:\nhttps://represent.com/store/pewdiepie\n\n:::::::I drink GFUEL (affiliate link)::::::::\nhttps://gfuel.ly/31Kargr\n\n:::::::I stream on DLive (ad)::::::::\n\nhttps://go.dlive.tv/pewdiepie\n\n:::::::My Setup (affiliate links):::::::: \nChair: https://clutchchairz.com/pewdiepie/\nElgato Green Screen:\nhttp://e.lga.to/PewDiePie\n\n:::::::Check out this game I helped make (affiliate)::::::::\nhttps://store.steampowered.com/app/703840/Animal_Super_Squad/\n\n__ Outro: Animation:\nhttps://www.youtube.com/user/jae55555\n Song: https://www.youtube.com/channel/UC3e8EMTOn4g6ZSKggHTnNng'},
+ 'defaultAudioLanguage': 'en-GB'}
+
 
 ```
+
