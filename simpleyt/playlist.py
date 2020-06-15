@@ -42,7 +42,7 @@ class Playlist(object):
         """   
         return self.main_data.get('thumbnails')  
     @property
-    def default_thumbnail_url(self):
+    def default_thumbnail_url(self) -> str:
         """
         Returns the Default Thumbnail URL
         
