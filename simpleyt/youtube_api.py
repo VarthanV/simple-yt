@@ -5,6 +5,7 @@ from simpleyt.youtube_video import YoutubeVideo
 from simpleyt.video_comment import VideoComment
 from simpleyt.playlist import Playlist
 
+
 class YoutubeAPI:
     def __init__(self, api_key):
         """
@@ -98,6 +99,7 @@ class YoutubeAPI:
             obj = Playlist(comment)
             self.playlists.append(obj)
         return self.playlists
+
     def get_videos_from_playlist(self, playlist_id, max_results=1000, **kwargs):
         """
         Gets the List of ID's of Videos from the given 
@@ -142,4 +144,3 @@ class YoutubeAPI:
             videos.append(YoutubeVideo(vid_json))
             self.next_page_token = vid_json.get('nextPageToken')
         return videos
-
