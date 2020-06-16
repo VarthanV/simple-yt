@@ -67,3 +67,11 @@ def test_search_method():
     assert isinstance(result,YoutubeVideo)
     assert isinstance(result.title , str  )
     assert isinstance(result.like_count,int)
+@pytest.mark.fail_test    
+def test_video_parsing_fails():
+    with pytest.raises(Exception) as e:
+       vid = YoutubeVideo([])
+@pytest.mark.fail_test      
+def test_video_method_fails():
+     with pytest.raises(Exception) as e: 
+         video =client.get_video('33i93939393')       
