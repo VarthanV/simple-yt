@@ -4,13 +4,16 @@ from simpleyt import YoutubeVideo
 from simpleyt.youtube_channel import YouTubeChannel
 from simpleyt.playlist import Playlist
 from dotenv import load_dotenv
+import pytest
 load_dotenv()
 """ Intialization """
 key = os.environ.get('API_TOKEN')
 client = simpleyt.YoutubeAPI(key)
 channel_id = 'UC-lHJZR3Gqxm24_Vd_AJ5Yw'
 video_id = '7M9hc_PC_Vg'
-
+def test_api_fails():
+    with pytest.raises(Exception) as e :
+        failed_client = simpleyt.YoutubeAPI('fkfjf')
 
 def test_video_method():
     """  Test for the get_video method"""
