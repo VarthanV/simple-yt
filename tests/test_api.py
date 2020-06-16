@@ -37,3 +37,13 @@ def test_channel_method():
     assert channel.banner_image_url == 'https://yt3.ggpht.com/wuqXYCeCdttO0TcwBJR2yy0uJP2hPwTPdrDQpjD00t0Xd_81t6dYeLdVMR24ArD4kuIpWO4hWg=w1060-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj'
     assert isinstance(channel.video_count,int)
     assert isinstance(channel.view_count,int)
+
+def test_comment_method():
+    """ Testing of get_comment method """
+    comment_data  =client.get_comments('7M9hc_PC_Vg')
+    comments_list = comment_data.comments
+    assert isinstance(comments_list,list)
+    comment = comments_list[0]
+    assert isinstance(comment.comment_text,str)
+    assert isinstance(comment.author_name,str)
+
