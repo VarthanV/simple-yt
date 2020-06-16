@@ -2,16 +2,19 @@ import os
 import simpleyt
 from simpleyt import YoutubeVideo
 from simpleyt.youtube_channel import YouTubeChannel
+from simpleyt.playlist import Playlist
 from dotenv import load_dotenv
 load_dotenv()
 """ Intialization """
 key = os.environ.get('API_TOKEN')
 client = simpleyt.YoutubeAPI(key)
+channel_id = 'UC-lHJZR3Gqxm24_Vd_AJ5Yw'
+video_id = '7M9hc_PC_Vg'
 
 
 def test_video_method():
     """  Test for the get_video method"""
-    video = client.get_video('7M9hc_PC_Vg')
+    video = client.get_video(video_id)
     assert isinstance(video, YoutubeVideo)
     assert video.title == 'Oxygen - Video Song | Kavan | Hiphop Tamizha | K V Anand | Vijay Sethupathi, Madonna Sebastian'
     assert video.dimension == '2d'
@@ -27,7 +30,7 @@ def test_video_method():
 
 def test_channel_method():
     """  Testing of the get_channel method  """
-    channel  = client.get_channel('UC-lHJZR3Gqxm24_Vd_AJ5Yw')
+    channel  = client.get_channel(channel_id)
     assert isinstance(channel,YouTubeChannel)
     assert channel.name == 'PewDiePie'
     assert channel.description == 'I make videos.'
@@ -40,10 +43,15 @@ def test_channel_method():
 
 def test_comment_method():
     """ Testing of get_comment method """
-    comment_data  =client.get_comments('7M9hc_PC_Vg')
+    comment_data  =client.get_comments(video_id)
     comments_list = comment_data.comments
     assert isinstance(comments_list,list)
     comment = comments_list[0]
     assert isinstance(comment.comment_text,str)
     assert isinstance(comment.author_name,str)
 
+def test_get_playlists_method():
+    """ Testing of get_playlist method """
+    playlist = client.get_playlists(channel_id)
+    assert isinstance(playlist,list)
+    assert isinstance(playlist[0],Playlist)
