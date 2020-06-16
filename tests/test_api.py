@@ -20,4 +20,6 @@ def test_video_method():
     assert isinstance(video.is_licensed_content,bool)
     assert isinstance(video.category_id,str)
     assert video.is_licensed_content == True
-    
+    assert isinstance(video.response,dict)
+    assert isinstance(video.video_obj,dict)
+    assert isinstance(video.duration,str)
