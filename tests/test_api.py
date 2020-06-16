@@ -55,3 +55,12 @@ def test_get_playlists_method():
     playlist = client.get_playlists(channel_id)
     assert isinstance(playlist,list)
     assert isinstance(playlist[0],Playlist)
+
+def test_search_method():    
+    """ Test for search method """
+    s =client.search('Cat videos ') 
+    assert isinstance(s,list)
+    result = s[0]
+    assert isinstance(result,YoutubeVideo)
+    assert isinstance(result.title , str  )
+    assert isinstance(result.like_count,int)
