@@ -81,3 +81,8 @@ def test_video_method_fails():
 def test_playlist_method_fails():
     with pytest.raises(Exception) as e  :
         video = client.get_playlists('ejfejfnbej')
+
+@pytest.mark.fail_test
+def test_playlist_parsing_fails():
+    with pytest.raises(Exception) as e:
+        pla = Playlist([])
