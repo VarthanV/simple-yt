@@ -3,6 +3,7 @@ import simpleyt
 from simpleyt import YoutubeVideo
 from simpleyt.youtube_channel import YouTubeChannel
 from simpleyt.playlist import Playlist
+from simpleyt.comment import Comment
 from dotenv import load_dotenv
 import pytest
 load_dotenv()
@@ -68,21 +69,25 @@ def test_search_method():
     assert isinstance(result.title , str  )
     assert isinstance(result.like_count,int)
 
-@pytest.mark.fail_test    
+   
 def test_video_parsing_fails():
     with pytest.raises(Exception) as e:
        vid = YoutubeVideo([])
 
-@pytest.mark.fail_test      
+     
 def test_video_method_fails():
      with pytest.raises(Exception) as e: 
          video =client.get_video('33i93939393')       
-@pytest.mark.fail_test
+
 def test_playlist_method_fails():
     with pytest.raises(Exception) as e  :
         video = client.get_playlists('ejfejfnbej')
 
-@pytest.mark.fail_test
+
 def test_playlist_parsing_fails():
     with pytest.raises(Exception) as e:
         pla = Playlist([])
+
+def test_comment_parsing_fails():
+    with pytest.raises(Exception) as e:
+        comment =Comment({"foo":"bar","bob":"jane"})
