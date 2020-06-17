@@ -2,9 +2,8 @@
 
 simpleyt is a unofficial Python Package for the Youtube API. It focuses on **simplicity** as the name says to fetch details of the video,playlist,channel etc in a easy manner
 
-.. image:: https://pypip.in/download/django-simpleyt-widgets/badge.svg
-    :target: https://pypi.python.org/pypi/simpleyt/
-    :alt: Downloads
+![simpleyt](https://pypip.in/download/simpleyt/badge.svg)
+ 
 
 ## Installation
 
