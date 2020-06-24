@@ -4,9 +4,8 @@ from simpleyt import YoutubeVideo
 from simpleyt.youtube_channel import YouTubeChannel
 from simpleyt.playlist import Playlist
 from simpleyt.comment import Comment
-from dotenv import load_dotenv
 import pytest
-load_dotenv()
+
 """ Intialization """
 key = os.environ.get('API_TOKEN')
 client = simpleyt.YoutubeAPI(key)
