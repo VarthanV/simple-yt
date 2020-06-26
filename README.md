@@ -111,7 +111,7 @@ An instance of `YotubeVideo` class will be returned which helps to obtain the de
 ## Get Channel Details
 
 ```python
->>> channel = v.get_channel('UC-lHJZR3Gqxm24_Vd_AJ5Yw')
+>>> channel = client.get_channel('UC-lHJZR3Gqxm24_Vd_AJ5Yw')
 
 >>> channel.name
 'PewDiePie'
